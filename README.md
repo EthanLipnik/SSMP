@@ -10,6 +10,8 @@
 <img src="https://img.shields.io/badge/platform-iOS-lightgrey.svg" style="max-height: 300px;" alt="Platform: iOS">
 <br>
 
+<img src="readmeResources/showcase.gif" style="max-height: 4480px;" alt="Example project">
+
 ## What is SSMP?
 SSM or *Second Screen Mode Protocol* is an open source framework for iOS writen in Swift that makes it easy for apps to take advantage of a second display (through a cable or AirPlay).
 
