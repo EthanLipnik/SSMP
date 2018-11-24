@@ -11,7 +11,11 @@
 <br>
 
 ## What is SSMP?
-SSM or *Second Screen Mode Protocol* is an open source framework for iOS writen in Swift. It makes it easy for apps to take advantage of a second display (through a cable or AirPlay). It has two modes. **Custom**, the standard two views on two displays, and **default**. The default mode turns the app into a desktop experience
+SSM or *Second Screen Mode Protocol* is an open source framework for iOS writen in Swift. It makes it easy for apps to take advantage of a second display (through a cable or AirPlay). It has two modes.
+
+**Custom**: Two views on two displays
+
+**Default**: Gives the app into a desktop experience
 
 ## Usage
 In your AppDelegate, set the view controller the second display should have:
