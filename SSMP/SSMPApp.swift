@@ -13,7 +13,7 @@ public enum screenType {
 	case custom
 }
 
-public enum allowedClickType {
+public enum clickType {
 	case tap
 	case hardpress
 }
@@ -29,21 +29,35 @@ public class SSMPApp: NSObject {
 	public var secondWindow: UIWindow?
 	private var secondScreenView: UIView?
 	public var secondScreen: UIScreen?
-	public var allowedClickTypes = [allowedClickType.tap, allowedClickType.hardpress]
+	public var allowedClickTypes = [clickType.tap, clickType.hardpress]
 	
 	public func start() {
 		
 		if verboseLogging {
-			print("SSMP: Starting SSMP")
+			print("SSMP: Starting")
 		}
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(setupScreen), name: UIScreen.didConnectNotification, object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(screenDisconnected), name: UIScreen.didDisconnectNotification, object: nil)
 	}
 	
+	public func stop() {
+		if verboseLogging {
+			print("SSMP: Stopped")
+			print("SSMP: No longer looking for displays")
+		}
+		NotificationCenter.default.removeObserver(self, name: UIScreen.didConnectNotification, object: nil)
+		NotificationCenter.default.removeObserver(self, name: UIScreen.didDisconnectNotification, object: nil)
+		
+		if UIScreen.screens.count > 1 {
+			screenDisconnected()
+		}
+	}
+	
 	@objc private func setupScreen() {
 		
 		if verboseLogging {
+			print("SSMP: Started")
 			print("SSMP: Getting app ready for screens")
 		}
 		if UIScreen.screens.count > 1 {
