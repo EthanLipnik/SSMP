@@ -1,7 +1,7 @@
 # SSMP
 *Second Screen Mod Protocol* for iOS
 
-**Pre-release**
+***This is a Pre-release***
 
 <p>
 <a href="https://developer.apple.com/swift/"><img src="https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat" style="max-height: 300px;" alt="Swift"/></a>
@@ -11,25 +11,18 @@
 <br>
 
 ## What is SSMP?
-SSM or *Second Screen Mode Protocol* is an open source framework for iOS writen in Swift. It makes it easy for apps to take advantage of a second display (through a cable or AirPlay). It has two modes.
+SSM or *Second Screen Mode Protocol* is an open source framework for iOS writen in Swift that makes it easy for apps to take advantage of a second display (through a cable or AirPlay).
 
-**Custom**: Two views on two displays
-
-**Default**: Turns the app into a desktop experience
+## What does it do?
+When your device is connected to a display, the device becomes a mouse and keyboard. The display has the main view. It adds a mouse pointer which does all the normal touch inputs.
 
 ## Usage
+
+#### Setup
 In your AppDelegate, set the view controller the second display should have:
 ```swift
 SSMPApp.default.secondaryViewController = MyAppMainViewController()
 ```
-
-#### Add for the custom extension type
-*Not yet added*
-```swift
-SSMPApp.default.extensionType = screenType.custom
-SSMPApp.default.primaryViewController = MyViewController()
-```
-
 
 #### To Start
 ```swift
