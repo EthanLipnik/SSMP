@@ -18,7 +18,13 @@ public class SSMPDefaultExtensionViewController: UIViewController {
 		self.view.backgroundColor = SSMPApp.default.primaryBackgroundColor
 		
 		let mouseMoveGesture = UIPanGestureRecognizer(target: self, action: #selector(self.moveMousePan(_:)))
+		mouseMoveGesture.maximumNumberOfTouches = 1
 		self.view.addGestureRecognizer(mouseMoveGesture)
+		
+		let scrollMouseGesture = UIPanGestureRecognizer(target: self, action: #selector(self.scrollMousePan(_:)))
+		scrollMouseGesture.maximumNumberOfTouches = 2
+		scrollMouseGesture.minimumNumberOfTouches = 2
+		self.view.addGestureRecognizer(scrollMouseGesture)
 		
 		let primaryMouseClickGesture = UITapGestureRecognizer(target: self, action: #selector(self.primaryMouseClickedTap(_:)))
 		primaryMouseClickGesture.numberOfTapsRequired = 1
@@ -34,6 +40,36 @@ public class SSMPDefaultExtensionViewController: UIViewController {
 					}
 					if pointer.frame.origin.y < SSMPApp.default.secondScreen!.bounds.height - (gesture.velocity(in: self.view).y / 10) && pointer.frame.origin.y > SSMPApp.default.secondScreen!.bounds.origin.y - (gesture.velocity(in: self.view).y / 10) {
 						pointer.frame.origin.y += gesture.velocity(in: self.view).y / 10
+					}
+				}
+			}
+		}
+	}
+	
+	@objc func scrollMousePan(_ gesture: UIPanGestureRecognizer) {
+		var mousePointer: SSMPMousePointer?
+		for subview in SSMPApp.default.secondaryViewController!.view.subviews {
+			if let pointer = subview as? SSMPMousePointer {
+				mousePointer = pointer
+			}
+		}
+		
+		if let pointer = mousePointer {
+			if gesture.numberOfTouches == 2 {
+				for subview in SSMPApp.default.secondaryViewController!.view.subviews {
+					if subview.frame.contains(pointer.center) {
+						UIView.animate(withDuration: 0.2) {
+							if let scrollView = subview as? UIScrollView {
+								let width: CGFloat = scrollView.frame.size.width
+								let height: CGFloat = scrollView.frame.size.height
+								let newPosition: CGFloat = scrollView.contentOffset.y + gesture.velocity(in: self.view).y * 2
+								let toVisible: CGRect = CGRect(x: 0, y: newPosition, width: width, height: height)
+								
+								scrollView.scrollRectToVisible(toVisible, animated: true)
+							} else if let tableView = subview as? UITableView {
+								tableView.contentOffset.y += gesture.velocity(in: self.view).y / 20
+							}
+						}
 					}
 				}
 			}
