@@ -15,82 +15,68 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SSMP_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="1194" height="2000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4nr-Pf-2x3">
-                                <rect key="frame" x="0.0" y="2" width="1194" height="2000"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x49-yd-WUO">
+                                <rect key="frame" x="328" y="297" width="538" height="244"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x49-yd-WUO">
-                                        <rect key="frame" x="328" y="878" width="538" height="244"/>
-                                        <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Click me and start editing!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OdX-vO-HKR">
-                                                <rect key="frame" x="294" y="0.0" width="244" height="244"/>
-                                                <color key="backgroundColor" red="0.80699765290000003" green="0.55149549409999998" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="OdX-vO-HKR" secondAttribute="height" multiplier="1:1" id="xyz-FO-QiF"/>
-                                                </constraints>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </textView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQS-es-Tah">
-                                                <rect key="frame" x="0.0" y="0.0" width="244" height="244"/>
-                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="mQS-es-Tah" secondAttribute="height" multiplier="1:1" id="6bs-ZZ-EHT"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="60"/>
-                                                <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
-                                                <state key="normal" title="Click me">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="clickMeBtn_Click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZdO-zm-axb"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Click me and start editing!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OdX-vO-HKR">
+                                        <rect key="frame" x="294" y="0.0" width="244" height="244"/>
+                                        <color key="backgroundColor" red="0.80699765290000003" green="0.55149549409999998" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
-                                            <constraint firstItem="mQS-es-Tah" firstAttribute="leading" secondItem="x49-yd-WUO" secondAttribute="leading" id="6Hh-la-H9i"/>
-                                            <constraint firstAttribute="width" secondItem="x49-yd-WUO" secondAttribute="height" multiplier="661:300" id="9fw-ie-7lM"/>
-                                            <constraint firstItem="mQS-es-Tah" firstAttribute="top" secondItem="x49-yd-WUO" secondAttribute="top" id="GH7-5M-WGB"/>
-                                            <constraint firstItem="OdX-vO-HKR" firstAttribute="top" secondItem="x49-yd-WUO" secondAttribute="top" id="H8u-hc-0hj"/>
-                                            <constraint firstAttribute="bottom" secondItem="mQS-es-Tah" secondAttribute="bottom" id="WIm-XZ-ywA"/>
-                                            <constraint firstAttribute="bottom" secondItem="OdX-vO-HKR" secondAttribute="bottom" id="kxJ-8d-Jix"/>
-                                            <constraint firstAttribute="trailing" secondItem="OdX-vO-HKR" secondAttribute="trailing" id="uq7-lv-V3o"/>
+                                            <constraint firstAttribute="width" secondItem="OdX-vO-HKR" secondAttribute="height" multiplier="1:1" id="xyz-FO-QiF"/>
                                         </constraints>
-                                    </view>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQS-es-Tah">
+                                        <rect key="frame" x="0.0" y="0.0" width="244" height="244"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="mQS-es-Tah" secondAttribute="height" multiplier="1:1" id="6bs-ZZ-EHT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="60"/>
+                                        <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                        <state key="normal" title="Click me">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="clickMeBtn_Click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZdO-zm-axb"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="x49-yd-WUO" secondAttribute="trailing" constant="328" id="1cb-oo-yry"/>
-                                    <constraint firstItem="x49-yd-WUO" firstAttribute="centerX" secondItem="4nr-Pf-2x3" secondAttribute="centerX" id="BJx-At-NeM"/>
-                                    <constraint firstItem="x49-yd-WUO" firstAttribute="centerY" secondItem="4nr-Pf-2x3" secondAttribute="centerY" id="Qnq-mZ-4oZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="x49-yd-WUO" secondAttribute="bottom" constant="328" id="UoV-qs-jtG"/>
+                                    <constraint firstItem="mQS-es-Tah" firstAttribute="leading" secondItem="x49-yd-WUO" secondAttribute="leading" id="6Hh-la-H9i"/>
+                                    <constraint firstAttribute="width" secondItem="x49-yd-WUO" secondAttribute="height" multiplier="661:300" id="9fw-ie-7lM"/>
+                                    <constraint firstItem="mQS-es-Tah" firstAttribute="top" secondItem="x49-yd-WUO" secondAttribute="top" id="GH7-5M-WGB"/>
+                                    <constraint firstItem="OdX-vO-HKR" firstAttribute="top" secondItem="x49-yd-WUO" secondAttribute="top" id="H8u-hc-0hj"/>
+                                    <constraint firstAttribute="bottom" secondItem="mQS-es-Tah" secondAttribute="bottom" id="WIm-XZ-ywA"/>
+                                    <constraint firstAttribute="bottom" secondItem="OdX-vO-HKR" secondAttribute="bottom" id="kxJ-8d-Jix"/>
+                                    <constraint firstAttribute="trailing" secondItem="OdX-vO-HKR" secondAttribute="trailing" id="uq7-lv-V3o"/>
                                 </constraints>
-                            </scrollView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="4nr-Pf-2x3" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="BhY-lR-E4Z"/>
-                            <constraint firstItem="4nr-Pf-2x3" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Ro9-va-3QT"/>
-                            <constraint firstItem="4nr-Pf-2x3" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="YIv-DA-7Vk"/>
-                            <constraint firstItem="4nr-Pf-2x3" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="bL6-Qx-YO8"/>
+                            <constraint firstItem="x49-yd-WUO" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="lAt-xf-Ldh"/>
+                            <constraint firstItem="x49-yd-WUO" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="nDT-Rt-g17"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <size key="freeformSize" width="1194" height="2000"/>
                     <connections>
                         <outlet property="textView" destination="OdX-vO-HKR" id="BjX-9Z-YAT"/>
                     </connections>
