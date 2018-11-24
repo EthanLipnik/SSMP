@@ -59,19 +59,22 @@ public class SSMPApp: NSObject {
 			secondWindow = UIWindow(frame: secondScreen!.bounds)
 			
 			if let VC = secondaryViewController {
-				let pointer = SSMPMousePointer()
 				
-				var hasPointer = false
-				
-				for subview in VC.view.subviews {
-					if subview is SSMPMousePointer {
-						hasPointer = true
+				if extensionType == .default {
+					let pointer = SSMPMousePointer()
+					
+					var hasPointer = false
+					
+					for subview in VC.view.subviews {
+						if subview is SSMPMousePointer {
+							hasPointer = true
+						}
 					}
+					if hasPointer == false {
+						VC.view.addSubview(pointer)
+					}
+					pointer.center = secondWindow!.center
 				}
-				if hasPointer == false {
-					VC.view.addSubview(pointer)
-				}
-				pointer.center = secondWindow!.center
 				secondWindow?.rootViewController = VC
 			} else {
 				if verboseLogging {

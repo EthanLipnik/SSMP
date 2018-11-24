@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		// Set the view controller you want the main view controller
 		SSMPApp.default.secondaryViewController = VC
-		
 		// Start
 		SSMPApp.default.start()
 		

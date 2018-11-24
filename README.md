@@ -28,6 +28,11 @@ In your AppDelegate, set the view controller the second display should have:
 SSMPApp.default.secondaryViewController = MyAppMainViewController()
 ```
 
+For extension type, custom. This is the main display on the device:
+```swift
+SSMPApp.default.primaryViewController = MyOtherViewController()
+```
+
 #### To Start
 ```swift
 SSMPApp.default.start()
