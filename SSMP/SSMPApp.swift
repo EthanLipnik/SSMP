@@ -34,7 +34,7 @@ public class SSMPApp: NSObject {
 	public func start() {
 		
 		if verboseLogging {
-			print("SSMP: Starting")
+			print("SSMP: \"Starting\"")
 		}
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(setupScreen), name: UIScreen.didConnectNotification, object: nil)
@@ -43,8 +43,8 @@ public class SSMPApp: NSObject {
 	
 	public func stop() {
 		if verboseLogging {
-			print("SSMP: Stopped")
-			print("SSMP: No longer looking for displays")
+			print("SSMP: \"Stopped\"")
+			print("SSMP: \"No longer looking for displays\"")
 		}
 		NotificationCenter.default.removeObserver(self, name: UIScreen.didConnectNotification, object: nil)
 		NotificationCenter.default.removeObserver(self, name: UIScreen.didDisconnectNotification, object: nil)
@@ -57,13 +57,13 @@ public class SSMPApp: NSObject {
 	@objc private func setupScreen() {
 		
 		if verboseLogging {
-			print("SSMP: Started")
-			print("SSMP: Getting app ready for screens")
+			print("SSMP: \"Started\"")
+			print("SSMP: \"Getting app ready for screens\"")
 		}
 		if UIScreen.screens.count > 1 {
 			
 			if verboseLogging {
-				print("SSMP: A screen is connected")
+				print("SSMP: \"A screen is connected\"")
 			}
 			
 			if secondaryViewController == nil {
@@ -98,7 +98,7 @@ public class SSMPApp: NSObject {
 				secondWindow?.rootViewController = VC
 			} else {
 				if verboseLogging {
-					print("SSMP ERROR 5: secondaryViewController is nil")
+					print("SSMP ERROR 5: \"secondaryViewController is nil\"")
 				}
 			}
 			
@@ -126,7 +126,7 @@ public class SSMPApp: NSObject {
 			if let VC = secondaryViewController {
 				window.rootViewController = VC
 			} else {
-				fatalError("SSMP ERROR 4: Failed to get secondaryViewController")
+				fatalError("SSMP ERROR 4: \"Failed to get secondaryViewController\"")
 			}
 		}
 	}
