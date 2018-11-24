@@ -7,14 +7,28 @@
 //
 
 import UIKit
+// import SSMP not required in this file
 
 class ViewController: UIViewController {
-
+	
+	// Elements
+	@IBOutlet weak var textView: UITextView!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
+		
+		// Add gesture to hide the keyboard
+		let gesture = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
+		self.view.addGestureRecognizer(gesture)
 	}
-
-
+	
+	// When button clicked, change it title
+	@IBAction func clickMeBtn_Click(_ sender: UIButton) {
+		
+		sender.setTitle("Clicked!", for: .normal)
+	}
+	
+	@objc func hideKeyboard() {
+		self.view.endEditing(true)
+	}
 }
-

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SSMP
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-		// Override point for customization after application launch.
+		
+		// Get view controller from storyboard
+		let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+		let VC = storyboard.instantiateInitialViewController()
+		
+		// Set the view controller you want the main view controller
+		SSMPApp.default.secondaryViewController = VC
+		
+		// Start
+		SSMPApp.default.start()
+		
 		return true
 	}
 
