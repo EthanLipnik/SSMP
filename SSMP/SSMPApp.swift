@@ -13,6 +13,11 @@ public enum screenType {
 	case custom
 }
 
+public enum allowedClickType {
+	case tap
+	case hardpress
+}
+
 public class SSMPApp: NSObject {
 	public static var `default` = SSMPApp()
 	
@@ -24,6 +29,7 @@ public class SSMPApp: NSObject {
 	public var secondWindow: UIWindow?
 	private var secondScreenView: UIView?
 	public var secondScreen: UIScreen?
+	public var allowedClickTypes = [allowedClickType.tap, allowedClickType.hardpress]
 	
 	public func start() {
 		

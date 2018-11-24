@@ -26,9 +26,17 @@ public class SSMPDefaultExtensionViewController: UIViewController {
 		scrollMouseGesture.minimumNumberOfTouches = 2
 		self.view.addGestureRecognizer(scrollMouseGesture)
 		
-		let primaryMouseClickGesture = UITapGestureRecognizer(target: self, action: #selector(self.primaryMouseClickedTap(_:)))
-		primaryMouseClickGesture.numberOfTapsRequired = 1
-		self.view.addGestureRecognizer(primaryMouseClickGesture)
+		if SSMPApp.default.allowedClickTypes.contains(.tap) {
+			let primaryMouseClickGesture = UITapGestureRecognizer(target: self, action: #selector(self.primaryMouseClickedTap(_:)))
+			primaryMouseClickGesture.numberOfTapsRequired = 1
+			self.view.addGestureRecognizer(primaryMouseClickGesture)
+		}
+		
+		if SSMPApp.default.allowedClickTypes.contains(.hardpress) {
+			let primaryMouseClick3DGesture = DeepPressGestureRecognizer(target: self, action: #selector(self.primaryMouseClickedPressed(_:)), threshold: 0.225)
+			primaryMouseClick3DGesture.vibrateOnDeepPress = true
+			self.view.addGestureRecognizer(primaryMouseClick3DGesture)
+		}
 	}
 	
 	@objc func moveMousePan(_ gesture: UIPanGestureRecognizer) {
@@ -77,7 +85,15 @@ public class SSMPDefaultExtensionViewController: UIViewController {
 	}
 	
 	@objc func primaryMouseClickedTap(_ gesture: UITapGestureRecognizer) {
+		click()
+	}
+	
+	@objc func primaryMouseClickedPressed(_ gesture: DeepPressGestureRecognizer) {
 		
+		click()
+	}
+	
+	func click() {
 		var subviews = [UIView]()
 		var mousePointer: SSMPMousePointer!
 		
@@ -133,7 +149,6 @@ public class SSMPDefaultExtensionViewController: UIViewController {
 		for subview in subviews {
 			SSMPApp.default.secondaryViewController!.view.addSubview(subview)
 		}
-		
 	}
 }
 
