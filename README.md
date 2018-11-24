@@ -15,7 +15,7 @@ SSM or *Second Screen Mode Protocol* is an open source framework for iOS writen 
 
 **Custom**: Two views on two displays
 
-**Default**: Gives the app into a desktop experience
+**Default**: Turns the app into a desktop experience
 
 ## Usage
 In your AppDelegate, set the view controller the second display should have:
