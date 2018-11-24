@@ -33,6 +33,20 @@ For extension type, custom. This is the main display on the device:
 SSMPApp.default.primaryViewController = MyOtherViewController()
 ```
 
+#### Options
+For SSMPApp:
+```swift
+verboseLogging: Bool
+```
+```swift
+allowedClickTypes: [clickType]
+clickType = .tap, .hardpress
+```
+```swift
+extensionType: screenType
+screenType = .default, .custom
+```
+
 #### To Start
 ```swift
 SSMPApp.default.start()
