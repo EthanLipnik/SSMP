@@ -60,7 +60,17 @@ public class SSMPApp: NSObject {
 			
 			if let VC = secondaryViewController {
 				let pointer = SSMPMousePointer()
-				VC.view.addSubview(pointer)
+				
+				var hasPointer = false
+				
+				for subview in VC.view.subviews {
+					if subview is SSMPMousePointer {
+						hasPointer = true
+					}
+				}
+				if hasPointer == false {
+					VC.view.addSubview(pointer)
+				}
 				pointer.center = secondWindow!.center
 				secondWindow?.rootViewController = VC
 			} else {
@@ -89,11 +99,12 @@ public class SSMPApp: NSObject {
 	
 	@objc private func screenDisconnected() {
 		
-		let window = UIApplication.shared.windows[0]
-		if let VC = secondaryViewController {
-			window.rootViewController = VC
-		} else {
-			fatalError("SSMP ERROR 4: Failed to get secondaryViewController")
+		if let window = UIApplication.shared.windows.first {
+			if let VC = secondaryViewController {
+				window.rootViewController = VC
+			} else {
+				fatalError("SSMP ERROR 4: Failed to get secondaryViewController")
+			}
 		}
 	}
 }
