@@ -1,6 +1,8 @@
 # SSMP
 *Second Screen Mod Protocol* for iOS
 
+**Pre-release**
+
 <p>
 <a href="https://developer.apple.com/swift/"><img src="https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat" style="max-height: 300px;" alt="Swift"/></a>
 <a href="https://cocoapods.org/pods/SSMP"><img src="https://img.shields.io/cocoapods/v/SSMP.svg" style="max-height: 300px;" alt="PodVersion"/></a>
