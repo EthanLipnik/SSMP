@@ -1,5 +1,5 @@
 # SSMP
-*Second Screen Mod Protocol* for iOS
+*Second Screen Mode Protocol* for iOS
 
 ***This is a Pre-release***
 
