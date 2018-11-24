@@ -20,14 +20,14 @@ public class SSMPApp: NSObject {
 	public var primaryViewController: UIViewController?
 	public var extensionType: screenType = .default
 	public var primaryBackgroundColor: UIColor = UIColor.gray
-	public var isVerboseLogEnabled: Bool = false
+	public var verboseLogging: Bool = false
 	public var secondWindow: UIWindow?
 	private var secondScreenView: UIView?
 	public var secondScreen: UIScreen?
 	
 	public func start() {
 		
-		if isVerboseLogEnabled {
+		if verboseLogging {
 			print("SSMP: Starting SSMP")
 		}
 		
@@ -37,12 +37,12 @@ public class SSMPApp: NSObject {
 	
 	@objc private func setupScreen() {
 		
-		if isVerboseLogEnabled {
+		if verboseLogging {
 			print("SSMP: Getting app ready for screens")
 		}
 		if UIScreen.screens.count > 1 {
 			
-			if isVerboseLogEnabled {
+			if verboseLogging {
 				print("SSMP: A screen is connected")
 			}
 			
@@ -64,7 +64,7 @@ public class SSMPApp: NSObject {
 				pointer.center = secondWindow!.center
 				secondWindow?.rootViewController = VC
 			} else {
-				if isVerboseLogEnabled {
+				if verboseLogging {
 					print("SSMP ERROR 5: secondaryViewController is nil")
 				}
 			}
