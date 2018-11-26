@@ -42,6 +42,9 @@ verboseLogging: Bool
 allowedClickTypes: [clickType]
 clickType = .tap, .hardpress
 ```
+```swift
+primaryBackgroundColor: UIColor
+```
 
 #### To Start
 ```swift

@@ -6,8 +6,10 @@
 //  Copyright © 2018 Fetch. All rights reserved.
 //
 
+// Frameworks
 import UIKit
 
+// MARK: SSMPMousePointer Class
 public class SSMPMousePointer: UIView {
 	
 	override init(frame: CGRect) {
@@ -22,7 +24,12 @@ public class SSMPMousePointer: UIView {
 		
 		setUp()
 	}
+}
+
+// MARK: Functions
+extension SSMPMousePointer {
 	
+	// Setup function
 	private func setUp() {
 		self.backgroundColor = UIColor.black
 		self.layer.borderColor = UIColor.white.cgColor
@@ -35,5 +42,4 @@ public class SSMPMousePointer: UIView {
 		
 		self.frame = CGRect(x: 0, y: 0, width: 10, height: 10)
 	}
-	
 }

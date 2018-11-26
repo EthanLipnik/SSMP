@@ -28,6 +28,7 @@ class ViewController: UIViewController {
 		sender.setTitle("Clicked!", for: .normal)
 	}
 	
+	// Hide keyboard selector
 	@objc func hideKeyboard() {
 		self.view.endEditing(true)
 	}

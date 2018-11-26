@@ -6,7 +6,7 @@
 //  Copyright © 2015 Simon Gladman. All rights reserved.
 //
 //  Thanks to Alaric Cole - bridging header replaced by proper import :)
-// Updated to Swift 4.2 by Ethan Lipnik
+//  Updated to Swift 4.2 by Ethan Lipnik
 
 import AudioToolbox
 import UIKit.UIGestureRecognizerSubclass

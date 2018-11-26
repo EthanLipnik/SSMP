@@ -15,11 +15,12 @@ public enum clickType {
 	case hardpress
 }
 
-// SSMPApp class
+// MARK: SSMP Class
 public class SSMPApp: NSObject {
 	public static var `default` = SSMPApp()
 	
-	// Variables
+	
+	// MARK: Variables
 	public var viewController: UIViewController?
 	public var deviceViewController: UIViewController?
 	public var primaryBackgroundColor: UIColor = UIColor.gray
@@ -28,7 +29,10 @@ public class SSMPApp: NSObject {
 	private var secondScreenView: UIView?
 	public var secondScreen: UIScreen?
 	public var allowedClickTypes = [clickType.tap, clickType.hardpress]
-	
+}
+
+// MARK: Functions
+extension SSMPApp {
 	// Start function
 	public func start() {
 		
@@ -60,6 +64,10 @@ public class SSMPApp: NSObject {
 			screenDisconnected()
 		}
 	}
+}
+
+// MARK: Selectors
+extension SSMPApp {
 	
 	// Setup screen function
 	@objc private func setupScreen() {

@@ -6,105 +6,69 @@
 //  Copyright © 2018 Fetch. All rights reserved.
 //
 
+// Frameworks
 import UIKit
 import AVFoundation
 
+// MARK: SSMPDefaultExtensionViewController Class
 public class SSMPDefaultExtensionViewController: UIViewController {
 	
+	// MARK: Variables
 	public var textView: SSMPTextView?
+}
+
+// MARK: Default Functions
+extension SSMPDefaultExtensionViewController {
 	
+	// View loaded
 	override public func viewDidLoad() {
 		super.viewDidLoad()
 		
+		// Set background color
 		self.view.backgroundColor = SSMPApp.default.primaryBackgroundColor
 		
+		// Gestures
+		/// Move mouse gesture
 		let mouseMoveGesture = UIPanGestureRecognizer(target: self, action: #selector(self.moveMousePan(_:)))
 		mouseMoveGesture.maximumNumberOfTouches = 1
 		self.view.addGestureRecognizer(mouseMoveGesture)
 		
+		/// Scroll view gesture
 		let scrollMouseGesture = UIPanGestureRecognizer(target: self, action: #selector(self.scrollMousePan(_:)))
 		scrollMouseGesture.maximumNumberOfTouches = 2
 		scrollMouseGesture.minimumNumberOfTouches = 2
 		self.view.addGestureRecognizer(scrollMouseGesture)
 		
+		/// If allowed clicks contains "tap", then add primary mouse click tap
 		if SSMPApp.default.allowedClickTypes.contains(.tap) {
 			let primaryMouseClickGesture = UITapGestureRecognizer(target: self, action: #selector(self.primaryMouseClickedTap(_:)))
 			primaryMouseClickGesture.numberOfTapsRequired = 1
 			self.view.addGestureRecognizer(primaryMouseClickGesture)
 		}
 		
+		/// If allowed clicks contains "hardpress", then add primary mouse click hardpress
 		if SSMPApp.default.allowedClickTypes.contains(.hardpress) {
 			let primaryMouseClick3DGesture = DeepPressGestureRecognizer(target: self, action: #selector(self.primaryMouseClickedPressed(_:)), threshold: 0.225)
 			primaryMouseClick3DGesture.vibrateOnDeepPress = true
 			self.view.addGestureRecognizer(primaryMouseClick3DGesture)
 		}
 	}
+}
+
+// MARK: Functions
+extension SSMPDefaultExtensionViewController {
 	
-	@objc func moveMousePan(_ gesture: UIPanGestureRecognizer) {
-		for subview in SSMPApp.default.viewController!.view.subviews {
-			if let pointer = subview as? SSMPMousePointer {
-				if gesture.numberOfTouches == 1 {
-					if pointer.frame.origin.x < SSMPApp.default.secondScreen!.bounds.width - (gesture.velocity(in: self.view).x / 10) && pointer.frame.origin.x > SSMPApp.default.secondScreen!.bounds.origin.x - (gesture.velocity(in: self.view).x / 10) {
-						pointer.frame.origin.x += gesture.velocity(in: self.view).x / 10
-					}
-					if pointer.frame.origin.y < SSMPApp.default.secondScreen!.bounds.height - (gesture.velocity(in: self.view).y / 10) && pointer.frame.origin.y > SSMPApp.default.secondScreen!.bounds.origin.y - (gesture.velocity(in: self.view).y / 10) {
-						pointer.frame.origin.y += gesture.velocity(in: self.view).y / 10
-					}
-				}
-			}
-		}
-	}
-	
-	@objc func scrollMousePan(_ gesture: UIPanGestureRecognizer) {
-		var mousePointer: SSMPMousePointer?
-		for subview in SSMPApp.default.viewController!.view.subviews {
-			if let pointer = subview as? SSMPMousePointer {
-				mousePointer = pointer
-			}
-		}
-		
-		if let pointer = mousePointer {
-			if gesture.numberOfTouches == 2 {
-				for subview in SSMPApp.default.viewController!.view.subviews {
-					if subview.frame.contains(pointer.center) {
-						UIView.animate(withDuration: 0.2) {
-							if let scrollView = subview as? UIScrollView {
-								let width: CGFloat = scrollView.frame.size.width
-								let height: CGFloat = scrollView.frame.size.height
-								let newPosition: CGFloat = scrollView.contentOffset.y + gesture.velocity(in: self.view).y * 2
-								let toVisible: CGRect = CGRect(x: 0, y: newPosition, width: width, height: height)
-								
-								scrollView.scrollRectToVisible(toVisible, animated: true)
-							} else if let tableView = subview as? UITableView {
-								tableView.contentOffset.y += gesture.velocity(in: self.view).y / 20
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	
-	@objc func primaryMouseClickedTap(_ gesture: UITapGestureRecognizer) {
-		click()
-	}
-	
-	@objc func primaryMouseClickedPressed(_ gesture: DeepPressGestureRecognizer) {
-		
-		if gesture.state == .began {
-			click()
-		}
-	}
-	
+	// Click function
 	func click() {
 		
+		// Play click sound
 		let systemSoundID: SystemSoundID = 1104
 		AudioServicesPlaySystemSound(systemSoundID)
-		
 		
 		var subviews = [UIView]()
 		var mousePointer: SSMPMousePointer!
 		
+		// Get mouse pointer and remove all non-interactable subviews
 		for subview in SSMPApp.default.viewController!.view.subviews {
 			if subview is SSMPMousePointer {
 				mousePointer = subview as? SSMPMousePointer
@@ -115,13 +79,15 @@ public class SSMPDefaultExtensionViewController: UIViewController {
 			}
 		}
 		
+		// Get view user clicked
 		let newView = SSMPApp.default.viewController!.view.hitTest(mousePointer!.center, with: nil)
-		if let button = newView as? UIButton {
+		
+		if let button = newView as? UIButton { // If subview is button
 			button.sendActions(for: .touchUpInside)
-		} else if let tableView = newView as? UITableView {
+		} else if let tableView = newView as? UITableView { // If subview is tableview
 			let index = tableView.indexPathForRow(at: mousePointer!.center)
 			tableView.selectRow(at: index, animated: false, scrollPosition: UITableView.ScrollPosition.middle)
-		} else if let textview = newView as? UITextView {
+		} else if let textview = newView as? UITextView { // If subview is text view
 			
 			if textView == nil {
 				textView = SSMPTextView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
@@ -143,7 +109,8 @@ public class SSMPDefaultExtensionViewController: UIViewController {
 			
 			textView?.inputAccessoryView = textview.inputAccessoryView
 		} else {
-			if let gestureRecognizers = newView?.gestureRecognizers {
+			/*
+			if let gestureRecognizers = newView?.gestureRecognizers { // Get gestures from view
 				for gesture in gestureRecognizers {
 					if let gesture = gesture as? UITapGestureRecognizer {
 						if gesture.numberOfTapsRequired == 1 {
@@ -151,34 +118,118 @@ public class SSMPDefaultExtensionViewController: UIViewController {
 						}
 					}
 				}
-			}
+			}*/ // Doesn't work
 		}
 		
+		// Add back the subviews
 		for subview in subviews {
 			SSMPApp.default.viewController!.view.addSubview(subview)
 		}
 	}
 }
 
-extension SSMPDefaultExtensionViewController: UITextViewDelegate {
+// MARK: Selectors
+extension SSMPDefaultExtensionViewController {
 	
-	public func textViewDidChange(_ textView: UITextView) {
-		func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-			self.textView?.tiedTextView?.replace(self.textView!.tiedTextView!.selectedTextRange!, withText: text)
-			self.textView?.text = " "
-			return true
-		}
+	// Move mouse gesture
+	@objc func moveMousePan(_ gesture: UIPanGestureRecognizer) {
 		
-		func textViewDidChange(_ textView: UITextView) {
-			if self.textView?.text == "" {
-				self.textView?.tiedTextView?.deleteBackward()
-				self.textView?.text = " "
+		// Get all the subviews in the external display
+		for subview in SSMPApp.default.viewController!.view.subviews {
+			
+			// Get the pointer
+			if let pointer = subview as? SSMPMousePointer {
+				
+				// If only one finger is used, move pointer
+				if gesture.numberOfTouches == 1 {
+					if pointer.frame.origin.x < SSMPApp.default.secondScreen!.bounds.width - (gesture.velocity(in: self.view).x / 10) && pointer.frame.origin.x > SSMPApp.default.secondScreen!.bounds.origin.x - (gesture.velocity(in: self.view).x / 10) {
+						pointer.frame.origin.x += gesture.velocity(in: self.view).x / 10
+					}
+					if pointer.frame.origin.y < SSMPApp.default.secondScreen!.bounds.height - (gesture.velocity(in: self.view).y / 10) && pointer.frame.origin.y > SSMPApp.default.secondScreen!.bounds.origin.y - (gesture.velocity(in: self.view).y / 10) {
+						pointer.frame.origin.y += gesture.velocity(in: self.view).y / 10
+					}
+				}
+			}
+		}
+	}
+	
+	// Scroll view gesture
+	@objc func scrollMousePan(_ gesture: UIPanGestureRecognizer) {
+		
+		// Get mouse pointer
+		var mousePointer: SSMPMousePointer?
+		for subview in SSMPApp.default.viewController!.view.subviews {
+			if let pointer = subview as? SSMPMousePointer {
+				mousePointer = pointer
 			}
 		}
 		
-		func textViewDidEndEditing(_ textView: UITextView) {
-			self.textView?.inputAccessoryView = nil
-			SSMPApp.default.viewController!.view.endEditing(true)
+		// If pointer is not nil
+		if let pointer = mousePointer {
+			
+			// If only two fingers are used, scroll
+			if gesture.numberOfTouches == 2 {
+				
+				// Get all subviews in external display
+				for subview in SSMPApp.default.viewController!.view.subviews {
+					
+					// Get subview that mouse pointer in front of
+					if subview.frame.contains(pointer.center) {
+						
+						// Scroll
+						UIView.animate(withDuration: 0.2) {
+							if let scrollView = subview as? UIScrollView {
+								let width: CGFloat = scrollView.frame.size.width
+								let height: CGFloat = scrollView.frame.size.height
+								let newPosition: CGFloat = scrollView.contentOffset.y + gesture.velocity(in: self.view).y * 2
+								let toVisible: CGRect = CGRect(x: 0, y: newPosition, width: width, height: height)
+								
+								scrollView.scrollRectToVisible(toVisible, animated: true)
+							} else if let tableView = subview as? UITableView {
+								tableView.contentOffset.y += gesture.velocity(in: self.view).y / 20
+							}
+						}
+					}
+				}
+			}
 		}
+	}
+	
+	// Primary mouse tap
+	@objc func primaryMouseClickedTap(_ gesture: UITapGestureRecognizer) {
+		click()
+	}
+	
+	// Primary mouse 3D touch
+	@objc func primaryMouseClickedPressed(_ gesture: DeepPressGestureRecognizer) {
+		
+		if gesture.state == .began {
+			click()
+		}
+	}
+}
+
+// MARK: Text View Delegate
+extension SSMPDefaultExtensionViewController: UITextViewDelegate {
+	
+	// Text view should change text
+	public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+		self.textView?.tiedTextView?.replace(self.textView!.tiedTextView!.selectedTextRange!, withText: text)
+		self.textView?.text = " "
+		return true
+	}
+	
+	// Text view did change text
+	public func textViewDidChange(_ textView: UITextView) {
+		if self.textView?.text == "" {
+			self.textView?.tiedTextView?.deleteBackward()
+			self.textView?.text = " "
+		}
+	}
+	
+	// Text view did end editing
+	public func textViewDidEndEditing(_ textView: UITextView) {
+		self.textView?.inputAccessoryView = nil
+		SSMPApp.default.viewController!.view.endEditing(true)
 	}
 }
