@@ -117,7 +117,7 @@
 		AA3172EB21A8D65D006E7009 /* SSMP */ = {
 			isa = PBXGroup;
 			children = (
-				AAD57EFC21A9E077009E3E46 /* DeepPressGestureRecognizer.swift */,
+				AAAB443C21ACAB8B005CB59C /* Deep Press Gesture */,
 				AA3172FA21A8D680006E7009 /* SSMPApp.swift */,
 				AA3172F921A8D680006E7009 /* SSMPDefaultExtensionViewController.swift */,
 				AA3172F821A8D680006E7009 /* SSMPMousePointer.swift */,
@@ -126,6 +126,14 @@
 				AA3172ED21A8D65D006E7009 /* Info.plist */,
 			);
 			path = SSMP;
+			sourceTree = "<group>";
+		};
+		AAAB443C21ACAB8B005CB59C /* Deep Press Gesture */ = {
+			isa = PBXGroup;
+			children = (
+				AAD57EFC21A9E077009E3E46 /* DeepPressGestureRecognizer.swift */,
+			);
+			path = "Deep Press Gesture";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
