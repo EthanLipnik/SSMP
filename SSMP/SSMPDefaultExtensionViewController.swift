@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 public class SSMPDefaultExtensionViewController: UIViewController {
 	
@@ -90,10 +91,17 @@ public class SSMPDefaultExtensionViewController: UIViewController {
 	
 	@objc func primaryMouseClickedPressed(_ gesture: DeepPressGestureRecognizer) {
 		
-		click()
+		if gesture.state == .began {
+			click()
+		}
 	}
 	
 	func click() {
+		
+		let systemSoundID: SystemSoundID = 1104
+		AudioServicesPlaySystemSound(systemSoundID)
+		
+		
 		var subviews = [UIView]()
 		var mousePointer: SSMPMousePointer!
 		

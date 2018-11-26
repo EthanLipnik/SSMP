@@ -22,7 +22,7 @@ class ViewController: UIViewController {
 		self.view.addGestureRecognizer(gesture)
 	}
 	
-	// When button clicked, change it title
+	// When button clicked, change its title
 	@IBAction func clickMeBtn_Click(_ sender: UIButton) {
 		
 		sender.setTitle("Clicked!", for: .normal)
