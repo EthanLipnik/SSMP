@@ -41,7 +41,7 @@ public class SSMPDefaultExtensionViewController: UIViewController {
 	}
 	
 	@objc func moveMousePan(_ gesture: UIPanGestureRecognizer) {
-		for subview in SSMPApp.default.secondaryViewController!.view.subviews {
+		for subview in SSMPApp.default.viewController!.view.subviews {
 			if let pointer = subview as? SSMPMousePointer {
 				if gesture.numberOfTouches == 1 {
 					if pointer.frame.origin.x < SSMPApp.default.secondScreen!.bounds.width - (gesture.velocity(in: self.view).x / 10) && pointer.frame.origin.x > SSMPApp.default.secondScreen!.bounds.origin.x - (gesture.velocity(in: self.view).x / 10) {
@@ -57,7 +57,7 @@ public class SSMPDefaultExtensionViewController: UIViewController {
 	
 	@objc func scrollMousePan(_ gesture: UIPanGestureRecognizer) {
 		var mousePointer: SSMPMousePointer?
-		for subview in SSMPApp.default.secondaryViewController!.view.subviews {
+		for subview in SSMPApp.default.viewController!.view.subviews {
 			if let pointer = subview as? SSMPMousePointer {
 				mousePointer = pointer
 			}
@@ -65,7 +65,7 @@ public class SSMPDefaultExtensionViewController: UIViewController {
 		
 		if let pointer = mousePointer {
 			if gesture.numberOfTouches == 2 {
-				for subview in SSMPApp.default.secondaryViewController!.view.subviews {
+				for subview in SSMPApp.default.viewController!.view.subviews {
 					if subview.frame.contains(pointer.center) {
 						UIView.animate(withDuration: 0.2) {
 							if let scrollView = subview as? UIScrollView {
@@ -105,7 +105,7 @@ public class SSMPDefaultExtensionViewController: UIViewController {
 		var subviews = [UIView]()
 		var mousePointer: SSMPMousePointer!
 		
-		for subview in SSMPApp.default.secondaryViewController!.view.subviews {
+		for subview in SSMPApp.default.viewController!.view.subviews {
 			if subview is SSMPMousePointer {
 				mousePointer = subview as? SSMPMousePointer
 			}
@@ -115,7 +115,7 @@ public class SSMPDefaultExtensionViewController: UIViewController {
 			}
 		}
 		
-		let newView = SSMPApp.default.secondaryViewController!.view.hitTest(mousePointer!.center, with: nil)
+		let newView = SSMPApp.default.viewController!.view.hitTest(mousePointer!.center, with: nil)
 		if let button = newView as? UIButton {
 			button.sendActions(for: .touchUpInside)
 		} else if let tableView = newView as? UITableView {
@@ -155,7 +155,7 @@ public class SSMPDefaultExtensionViewController: UIViewController {
 		}
 		
 		for subview in subviews {
-			SSMPApp.default.secondaryViewController!.view.addSubview(subview)
+			SSMPApp.default.viewController!.view.addSubview(subview)
 		}
 	}
 }
@@ -178,7 +178,7 @@ extension SSMPDefaultExtensionViewController: UITextViewDelegate {
 		
 		func textViewDidEndEditing(_ textView: UITextView) {
 			self.textView?.inputAccessoryView = nil
-			SSMPApp.default.secondaryViewController!.view.endEditing(true)
+			SSMPApp.default.viewController!.view.endEditing(true)
 		}
 	}
 }

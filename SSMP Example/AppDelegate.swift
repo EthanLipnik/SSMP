@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let VC = storyboard.instantiateInitialViewController()
 		
 		// Set the view controller you want the main view controller
-		SSMPApp.default.secondaryViewController = VC
+		SSMPApp.default.viewController = VC
 		// Start
 		SSMPApp.default.start()
 		

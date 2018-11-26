@@ -25,12 +25,12 @@ When your device is connected to a display, the device becomes a mouse and keybo
 #### Setup
 In your AppDelegate, set the view controller the second display should have:
 ```swift
-SSMPApp.default.secondaryViewController = MyAppMainViewController()
+SSMPApp.default.viewController = MyAppMainViewController()
 ```
 
-For extension type, custom. This is the main display on the device:
+If you want to set whats on the device's display *(You will lose the mouse pointer)*:
 ```swift
-SSMPApp.default.primaryViewController = MyOtherViewController()
+SSMPApp.default.deviceViewController = MyOtherViewController()
 ```
 
 #### Options
@@ -41,10 +41,6 @@ verboseLogging: Bool
 ```swift
 allowedClickTypes: [clickType]
 clickType = .tap, .hardpress
-```
-```swift
-extensionType: screenType
-screenType = .default, .custom
 ```
 
 #### To Start
