@@ -29,6 +29,7 @@ public class SSMPApp: NSObject {
 	private var secondScreenView: UIView?
 	public var secondScreen: UIScreen?
 	public var allowedClickTypes = [clickType.tap, clickType.hardpress]
+	private var fallbackViewController: UIViewController?
 }
 
 // MARK: Functions
@@ -71,6 +72,9 @@ extension SSMPApp {
 	
 	// Setup screen function
 	@objc private func setupScreen() {
+		
+		// Set fallback view controller
+		fallbackViewController = UIApplication.topViewController()
 		
 		// If verbose logging is enabled, log "started"
 		if verboseLogging {
@@ -131,7 +135,10 @@ extension SSMPApp {
 			// If device's view controller is nil, initialize the default view controller. Else, set it to the device's view controller
 			let window = UIApplication.shared.windows[1]
 			if deviceViewController == nil {
-				window.rootViewController = SSMPDefaultExtensionViewController()
+				UIView.transition(with: window, duration: 0.4, options: .transitionCrossDissolve, animations: {
+					window.rootViewController = SSMPDefaultExtensionViewController()
+				}, completion: { completed in
+				})
 			} else if let VC = deviceViewController {
 				window.rootViewController = VC
 			}
@@ -142,12 +149,32 @@ extension SSMPApp {
 	@objc private func screenDisconnected() {
 		
 		// If device's window is not nil, reset the device's view
-		if let window = UIApplication.shared.windows.first {
-			if let VC = viewController {
-				window.rootViewController = VC
+		if let window = UIApplication.shared.keyWindow {
+			if let VC = fallbackViewController {
+				UIView.transition(with: window, duration: 0.4, options: .transitionCrossDissolve, animations: {
+					window.rootViewController = VC
+				}, completion: { completed in
+				})
 			} else {
-				fatalError("SSMP ERROR 4: \"Failed to get secondaryViewController\"")
+				fatalError("SSMP ERROR 4: \"Failed to get fallback view controller\"")
 			}
 		}
+	}
+}
+
+extension UIApplication {
+	class func topViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+		if let navigationController = controller as? UINavigationController {
+			return topViewController(controller: navigationController.visibleViewController)
+		}
+		if let tabController = controller as? UITabBarController {
+			if let selected = tabController.selectedViewController {
+				return topViewController(controller: selected)
+			}
+		}
+		if let presented = controller?.presentedViewController {
+			return topViewController(controller: presented)
+		}
+		return controller
 	}
 }
