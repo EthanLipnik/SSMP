@@ -29,26 +29,26 @@ extension SSMPDefaultExtensionViewController {
 		
 		// Gestures
 		/// Move mouse gesture
-		let mouseMoveGesture = UIPanGestureRecognizer(target: self, action: #selector(self.moveMousePan(_:)))
+		let mouseMoveGesture = SSMPPanGestureRecognizer(target: self, action: #selector(self.moveMousePan(_:)))
 		mouseMoveGesture.maximumNumberOfTouches = 1
 		self.view.addGestureRecognizer(mouseMoveGesture)
 		
 		/// Scroll view gesture
-		let scrollMouseGesture = UIPanGestureRecognizer(target: self, action: #selector(self.scrollMousePan(_:)))
+		let scrollMouseGesture = SSMPPanGestureRecognizer(target: self, action: #selector(self.scrollMousePan(_:)))
 		scrollMouseGesture.maximumNumberOfTouches = 2
 		scrollMouseGesture.minimumNumberOfTouches = 2
 		self.view.addGestureRecognizer(scrollMouseGesture)
 		
 		/// If allowed clicks contains "tap", then add primary mouse click tap
 		if SSMPApp.default.allowedClickTypes.contains(.tap) {
-			let primaryMouseClickGesture = UITapGestureRecognizer(target: self, action: #selector(self.primaryMouseClickedTap(_:)))
+			let primaryMouseClickGesture = SSMPTapGestureRecognizer(target: self, action: #selector(self.primaryMouseClickedTap(_:)))
 			primaryMouseClickGesture.numberOfTapsRequired = 1
 			self.view.addGestureRecognizer(primaryMouseClickGesture)
 		}
 		
 		/// If allowed clicks contains "hardpress", then add primary mouse click hardpress
 		if SSMPApp.default.allowedClickTypes.contains(.hardpress) {
-			let primaryMouseClick3DGesture = DeepPressGestureRecognizer(target: self, action: #selector(self.primaryMouseClickedPressed(_:)), threshold: 0.225)
+			let primaryMouseClick3DGesture = SSMPDeepPressGestureRecognizer(target: self, action: #selector(self.primaryMouseClickedPressed(_:)), threshold: 0.225)
 			primaryMouseClick3DGesture.vibrateOnDeepPress = true
 			self.view.addGestureRecognizer(primaryMouseClick3DGesture)
 		}
@@ -109,16 +109,15 @@ extension SSMPDefaultExtensionViewController {
 			
 			textView?.inputAccessoryView = textview.inputAccessoryView
 		} else {
-			/*
 			if let gestureRecognizers = newView?.gestureRecognizers { // Get gestures from view
 				for gesture in gestureRecognizers {
-					if let gesture = gesture as? UITapGestureRecognizer {
+					if let gesture = gesture as? SSMPTapGestureRecognizer {
 						if gesture.numberOfTapsRequired == 1 {
-							gesture.touchesBegan(Set<UITouch>(), with: UIEvent())
+							gesture.perform(gesture.function)
 						}
 					}
 				}
-			}*/ // Doesn't work
+			}
 		}
 		
 		// Add back the subviews
@@ -201,7 +200,7 @@ extension SSMPDefaultExtensionViewController {
 	}
 	
 	// Primary mouse 3D touch
-	@objc func primaryMouseClickedPressed(_ gesture: DeepPressGestureRecognizer) {
+	@objc func primaryMouseClickedPressed(_ gesture: SSMPDeepPressGestureRecognizer) {
 		
 		if gesture.state == .began {
 			click()

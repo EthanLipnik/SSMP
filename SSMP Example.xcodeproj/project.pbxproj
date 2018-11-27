@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA1BA9DC21ACDE17002A4344 /* SSMPTapGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1BA9DB21ACDE17002A4344 /* SSMPTapGestureRecognizer.swift */; };
+		AA1BA9DE21ACE073002A4344 /* SSMPPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1BA9DD21ACE073002A4344 /* SSMPPanGestureRecognizer.swift */; };
+		AA1BA9E021ACE0C1002A4344 /* SSMPLongPressGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1BA9DF21ACE0C1002A4344 /* SSMPLongPressGestureRecognizer.swift */; };
+		AA1BA9E221ACE0DF002A4344 /* SSMPGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1BA9E121ACE0DF002A4344 /* SSMPGestureRecognizer.swift */; };
 		AA3172B921A8D561006E7009 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3172B821A8D561006E7009 /* AppDelegate.swift */; };
 		AA3172BB21A8D561006E7009 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3172BA21A8D561006E7009 /* ViewController.swift */; };
 		AA3172BE21A8D561006E7009 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA3172BC21A8D561006E7009 /* Main.storyboard */; };
@@ -19,7 +23,7 @@
 		AA3172FC21A8D680006E7009 /* SSMPMousePointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3172F821A8D680006E7009 /* SSMPMousePointer.swift */; };
 		AA3172FD21A8D680006E7009 /* SSMPDefaultExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3172F921A8D680006E7009 /* SSMPDefaultExtensionViewController.swift */; };
 		AA3172FE21A8D680006E7009 /* SSMPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3172FA21A8D680006E7009 /* SSMPApp.swift */; };
-		AAD57EFD21A9E077009E3E46 /* DeepPressGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD57EFC21A9E077009E3E46 /* DeepPressGestureRecognizer.swift */; };
+		AAD57EFD21A9E077009E3E46 /* SSMPDeepPressGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD57EFC21A9E077009E3E46 /* SSMPDeepPressGestureRecognizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AA1BA9DB21ACDE17002A4344 /* SSMPTapGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMPTapGestureRecognizer.swift; sourceTree = "<group>"; };
+		AA1BA9DD21ACE073002A4344 /* SSMPPanGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMPPanGestureRecognizer.swift; sourceTree = "<group>"; };
+		AA1BA9DF21ACE0C1002A4344 /* SSMPLongPressGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMPLongPressGestureRecognizer.swift; sourceTree = "<group>"; };
+		AA1BA9E121ACE0DF002A4344 /* SSMPGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMPGestureRecognizer.swift; sourceTree = "<group>"; };
 		AA3172B521A8D561006E7009 /* SSMP Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SSMP Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA3172B821A8D561006E7009 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA3172BA21A8D561006E7009 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,7 +69,7 @@
 		AA3172F821A8D680006E7009 /* SSMPMousePointer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSMPMousePointer.swift; sourceTree = "<group>"; };
 		AA3172F921A8D680006E7009 /* SSMPDefaultExtensionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSMPDefaultExtensionViewController.swift; sourceTree = "<group>"; };
 		AA3172FA21A8D680006E7009 /* SSMPApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSMPApp.swift; sourceTree = "<group>"; };
-		AAD57EFC21A9E077009E3E46 /* DeepPressGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepPressGestureRecognizer.swift; sourceTree = "<group>"; };
+		AAD57EFC21A9E077009E3E46 /* SSMPDeepPressGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSMPDeepPressGestureRecognizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +130,10 @@
 				AA3172F921A8D680006E7009 /* SSMPDefaultExtensionViewController.swift */,
 				AA3172F821A8D680006E7009 /* SSMPMousePointer.swift */,
 				AA3172F721A8D680006E7009 /* SSMPTextView.swift */,
+				AA1BA9DB21ACDE17002A4344 /* SSMPTapGestureRecognizer.swift */,
+				AA1BA9DD21ACE073002A4344 /* SSMPPanGestureRecognizer.swift */,
+				AA1BA9DF21ACE0C1002A4344 /* SSMPLongPressGestureRecognizer.swift */,
+				AA1BA9E121ACE0DF002A4344 /* SSMPGestureRecognizer.swift */,
 				AA3172EC21A8D65D006E7009 /* SSMP.h */,
 				AA3172ED21A8D65D006E7009 /* Info.plist */,
 			);
@@ -131,7 +143,7 @@
 		AAAB443C21ACAB8B005CB59C /* Deep Press Gesture */ = {
 			isa = PBXGroup;
 			children = (
-				AAD57EFC21A9E077009E3E46 /* DeepPressGestureRecognizer.swift */,
+				AAD57EFC21A9E077009E3E46 /* SSMPDeepPressGestureRecognizer.swift */,
 			);
 			path = "Deep Press Gesture";
 			sourceTree = "<group>";
@@ -259,10 +271,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAD57EFD21A9E077009E3E46 /* DeepPressGestureRecognizer.swift in Sources */,
+				AAD57EFD21A9E077009E3E46 /* SSMPDeepPressGestureRecognizer.swift in Sources */,
 				AA3172FE21A8D680006E7009 /* SSMPApp.swift in Sources */,
+				AA1BA9DC21ACDE17002A4344 /* SSMPTapGestureRecognizer.swift in Sources */,
 				AA3172FD21A8D680006E7009 /* SSMPDefaultExtensionViewController.swift in Sources */,
 				AA3172FC21A8D680006E7009 /* SSMPMousePointer.swift in Sources */,
+				AA1BA9DE21ACE073002A4344 /* SSMPPanGestureRecognizer.swift in Sources */,
+				AA1BA9E021ACE0C1002A4344 /* SSMPLongPressGestureRecognizer.swift in Sources */,
+				AA1BA9E221ACE0DF002A4344 /* SSMPGestureRecognizer.swift in Sources */,
 				AA3172FB21A8D680006E7009 /* SSMPTextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

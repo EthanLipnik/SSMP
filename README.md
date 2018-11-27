@@ -33,6 +33,8 @@ If you want to set whats on the device's display *(You will lose the mouse point
 SSMPApp.default.deviceViewController = MyOtherViewController()
 ```
 
+Replace all gesture recognizers with `SSMP{type}GestureRecognizer`. For example, `UITapGestureRecognizer` changes to `SSMPTapGestureRecognizer`
+
 #### Options
 For SSMPApp:
 ```swift

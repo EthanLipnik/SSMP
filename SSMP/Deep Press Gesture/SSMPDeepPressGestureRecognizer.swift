@@ -1,6 +1,6 @@
 //
-//  DeepPressGestureRecognizer.swift
-//  DeepPressGestureRecognizer
+//  SSMPDeepPressGestureRecognizer.swift
+//  SSMPDeepPressGestureRecognizer
 //
 //  Created by SIMON_NON_ADMIN on 03/10/2015.
 //  Copyright © 2015 Simon Gladman. All rights reserved.
@@ -13,7 +13,7 @@ import UIKit.UIGestureRecognizerSubclass
 
 // MARK: GestureRecognizer
 
-class DeepPressGestureRecognizer: UIGestureRecognizer
+class SSMPDeepPressGestureRecognizer: SSMPGestureRecognizer
 {
 	var vibrateOnDeepPress = false
 	let threshold: CGFloat
@@ -45,7 +45,7 @@ class DeepPressGestureRecognizer: UIGestureRecognizer
 	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent) {
 		super.touchesEnded(touches, with: event)
 		
-		state = deepPressed ? UIGestureRecognizer.State.ended : UIGestureRecognizer.State.failed
+		state = deepPressed ? SSMPGestureRecognizer.State.ended : SSMPGestureRecognizer.State.failed
 		
 		deepPressed = false
 	}
@@ -62,7 +62,7 @@ class DeepPressGestureRecognizer: UIGestureRecognizer
 			view.layer.addSublayer(pulse)
 			pulse.pulse(frame: CGRect(origin: CGPoint.zero, size: view.frame.size))
 			
-			state = UIGestureRecognizer.State.began
+			state = SSMPGestureRecognizer.State.began
 			
 			if vibrateOnDeepPress
 			{
@@ -79,7 +79,7 @@ class DeepPressGestureRecognizer: UIGestureRecognizer
 		}
 		else if deepPressed && (touch.force / touch.maximumPossibleForce) < threshold
 		{
-			state =  UIGestureRecognizer.State.ended
+			state =  SSMPGestureRecognizer.State.ended
 			
 			deepPressed = false
 		}
@@ -90,10 +90,10 @@ class DeepPressGestureRecognizer: UIGestureRecognizer
 
 protocol DeepPressable
 {
-	var gestureRecognizers: [UIGestureRecognizer]? {get set}
+	var gestureRecognizers: [SSMPGestureRecognizer]? {get set}
 	
-	func addGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer)
-	func removeGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer)
+	func addGestureRecognizer(_ gestureRecognizer: SSMPGestureRecognizer)
+	func removeGestureRecognizer(_ gestureRecognizer: SSMPGestureRecognizer)
 	
 	func setDeepPressAction(target: AnyObject, action: Selector)
 	func removeDeepPressAction()
@@ -103,7 +103,7 @@ extension DeepPressable
 {
 	func setDeepPressAction(target: AnyObject, action: Selector)
 	{
-		let deepPressGestureRecognizer = DeepPressGestureRecognizer(target: target, action: action, threshold: 0.75)
+		let deepPressGestureRecognizer = SSMPDeepPressGestureRecognizer(target: target, action: action, threshold: 0.75)
 		
 		self.addGestureRecognizer(deepPressGestureRecognizer)
 	}
@@ -115,7 +115,7 @@ extension DeepPressable
 			return
 		}
 		
-		for recogniser in gestureRecognizers where recogniser is DeepPressGestureRecognizer
+		for recogniser in gestureRecognizers where recogniser is SSMPDeepPressGestureRecognizer
 		{
 			removeGestureRecognizer(recogniser)
 		}
