@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 //! Project version number for SSMP.
 FOUNDATION_EXPORT double SSMPVersionNumber;
