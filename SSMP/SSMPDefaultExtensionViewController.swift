@@ -108,6 +108,9 @@ extension SSMPDefaultExtensionViewController {
 			textview.becomeFirstResponder()
 			
 			textView?.inputAccessoryView = textview.inputAccessoryView
+		} else if let collectionview = newView as? UICollectionView {
+			let index = collectionview.indexPathForItem(at: mousePointer!.center)
+			collectionview.selectItem(at: index, animated: false, scrollPosition: UICollectionView.ScrollPosition.top)
 		} else {
 			if let gestureRecognizers = newView?.gestureRecognizers { // Get gestures from view
 				for gesture in gestureRecognizers {
