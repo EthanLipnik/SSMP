@@ -23,6 +23,7 @@
 		AA3172FC21A8D680006E7009 /* SSMPMousePointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3172F821A8D680006E7009 /* SSMPMousePointer.swift */; };
 		AA3172FD21A8D680006E7009 /* SSMPDefaultExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3172F921A8D680006E7009 /* SSMPDefaultExtensionViewController.swift */; };
 		AA3172FE21A8D680006E7009 /* SSMPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3172FA21A8D680006E7009 /* SSMPApp.swift */; };
+		AAB7C83321B0705C003AFF73 /* webViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB7C83221B0705C003AFF73 /* webViewController.swift */; };
 		AAD57EFD21A9E077009E3E46 /* SSMPDeepPressGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD57EFC21A9E077009E3E46 /* SSMPDeepPressGestureRecognizer.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		AA3172F821A8D680006E7009 /* SSMPMousePointer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSMPMousePointer.swift; sourceTree = "<group>"; };
 		AA3172F921A8D680006E7009 /* SSMPDefaultExtensionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSMPDefaultExtensionViewController.swift; sourceTree = "<group>"; };
 		AA3172FA21A8D680006E7009 /* SSMPApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSMPApp.swift; sourceTree = "<group>"; };
+		AAB7C83221B0705C003AFF73 /* webViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = webViewController.swift; sourceTree = "<group>"; };
 		AAD57EFC21A9E077009E3E46 /* SSMPDeepPressGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSMPDeepPressGestureRecognizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +116,7 @@
 			children = (
 				AA3172B821A8D561006E7009 /* AppDelegate.swift */,
 				AA3172BA21A8D561006E7009 /* ViewController.swift */,
+				AAB7C83221B0705C003AFF73 /* webViewController.swift */,
 				AA3172BC21A8D561006E7009 /* Main.storyboard */,
 				AA3172BF21A8D562006E7009 /* Assets.xcassets */,
 				AA3172C121A8D562006E7009 /* LaunchScreen.storyboard */,
@@ -264,6 +267,7 @@
 			files = (
 				AA3172BB21A8D561006E7009 /* ViewController.swift in Sources */,
 				AA3172B921A8D561006E7009 /* AppDelegate.swift in Sources */,
+				AAB7C83321B0705C003AFF73 /* webViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,7 +441,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VZEDXC35CE;
 				INFOPLIST_FILE = "SSMP Example/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,7 +461,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VZEDXC35CE;
 				INFOPLIST_FILE = "SSMP Example/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

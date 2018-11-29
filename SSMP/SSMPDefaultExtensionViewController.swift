@@ -9,6 +9,7 @@
 // Frameworks
 import UIKit
 import AVFoundation
+import WebKit
 
 // MARK: SSMPDefaultExtensionViewController Class
 public class SSMPDefaultExtensionViewController: UIViewController {
@@ -66,6 +67,7 @@ extension SSMPDefaultExtensionViewController {
 		AudioServicesPlaySystemSound(systemSoundID)
 		
 		var subviews = [UIView]()
+		var webView: WKWebView?
 		var mousePointer: SSMPMousePointer!
 		
 		// Get mouse pointer and remove all non-interactable subviews
@@ -74,13 +76,22 @@ extension SSMPDefaultExtensionViewController {
 				mousePointer = subview as? SSMPMousePointer
 			}
 			if subview is SSMPMousePointer || subview.isUserInteractionEnabled == false {
+				
 				subviews.append(subview)
 				subview.removeFromSuperview()
+			} else if subview is WKWebView {
+				
+				webView = subview as? WKWebView
 			}
 		}
 		
 		// Get view user clicked
-		let newView = SSMPApp.default.viewController!.view.hitTest(mousePointer!.center, with: nil)
+		var newView: UIView?
+		if webView == nil {
+			newView = SSMPApp.default.viewController!.view.hitTest(mousePointer!.center, with: nil)
+		} else {
+			newView = webView
+		}
 		
 		if let button = newView as? UIButton { // If subview is button
 			button.sendActions(for: .touchUpInside)
@@ -111,6 +122,8 @@ extension SSMPDefaultExtensionViewController {
 		} else if let collectionview = newView as? UICollectionView {
 			let index = collectionview.indexPathForItem(at: mousePointer!.center)
 			collectionview.selectItem(at: index, animated: false, scrollPosition: UICollectionView.ScrollPosition.top)
+		} else if newView is WKWebView {
+			
 		} else {
 			if let gestureRecognizers = newView?.gestureRecognizers { // Get gestures from view
 				for gesture in gestureRecognizers {
@@ -189,6 +202,21 @@ extension SSMPDefaultExtensionViewController {
 								scrollView.scrollRectToVisible(toVisible, animated: true)
 							} else if let tableView = subview as? UITableView {
 								tableView.contentOffset.y += gesture.velocity(in: self.view).y / 20
+							} else if let webView = subview as? UIWebView {
+								let width: CGFloat = webView.frame.size.width
+								let height: CGFloat = webView.frame.size.height
+								let newPosition: CGFloat = webView.scrollView.contentOffset.y + gesture.velocity(in: self.view).y * 2
+								let toVisible: CGRect = CGRect(x: 0, y: newPosition, width: width, height: height)
+								
+								webView.scrollView.scrollRectToVisible(toVisible, animated: true)
+							} else if let webView = subview as? WKWebView {
+								
+								let width: CGFloat = webView.frame.size.width
+								let height: CGFloat = webView.frame.size.height
+								let newPosition: CGFloat = webView.scrollView.contentOffset.y + gesture.velocity(in: self.view).y * 2
+								let toVisible: CGRect = CGRect(x: 0, y: newPosition, width: width, height: height)
+								
+								webView.scrollView.scrollRectToVisible(toVisible, animated: true)
 							}
 						}
 					}

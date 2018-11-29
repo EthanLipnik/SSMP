@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		// Get view controller from storyboard
 		let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-		let VC = storyboard.instantiateViewController(withIdentifier: "externalVC") as? ViewController
+		let VC = storyboard.instantiateViewController(withIdentifier: "webViewController") as? webViewController
 		
 		// Set the view controller you want the main view controller
 		SSMPApp.default.viewController = VC
