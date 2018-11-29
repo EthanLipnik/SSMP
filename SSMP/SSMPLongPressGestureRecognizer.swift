@@ -8,11 +8,11 @@
 
 import UIKit
 
-class SSMPLongPressGestureRecognizer: UILongPressGestureRecognizer {
+public class SSMPLongPressGestureRecognizer: UILongPressGestureRecognizer {
 	public var function: Selector!
 	
 	
-	override init(target: Any?, action: Selector?) {
+	public override init(target: Any?, action: Selector?) {
 		super.init(target: target, action: action)
 		
 		if let target = target, let action = action {

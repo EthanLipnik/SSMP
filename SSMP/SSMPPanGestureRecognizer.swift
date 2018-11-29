@@ -8,11 +8,10 @@
 
 import UIKit
 
-class SSMPPanGestureRecognizer: UIPanGestureRecognizer {
+public class SSMPPanGestureRecognizer: UIPanGestureRecognizer {
 	public var function: Selector!
 	
-	
-	override init(target: Any?, action: Selector?) {
+	public override init(target: Any?, action: Selector?) {
 		super.init(target: target, action: action)
 		
 		if let target = target, let action = action {
