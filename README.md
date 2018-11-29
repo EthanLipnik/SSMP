@@ -20,6 +20,22 @@ SSM or *Second Screen Mode Protocol* is an open source framework for iOS writen 
 ## What does it do?
 When your device is connected to a display, the device becomes a mouse and keyboard. The display has the main view. It adds a mouse pointer which does all the normal touch inputs.
 
+## Installation
+#### Cocoapods
+Add this to your Podfile
+```
+pod 'SSMP'
+```
+
+#### Carthage
+Add this to your Cartfile
+```
+github "Devecstatic/SSMP"
+```
+
+#### Framework
+Download the most recent from the releases.
+
 ## Usage
 
 #### Setup
