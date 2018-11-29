@@ -14,6 +14,8 @@
 <img src="readmeResources/showcase.gif" style="max-height: 4480px;" alt="Example project">
 </p>
 
+**iCode beta is coming soon! For more info [click here](https://github.com/Devecstatic/SSMP/blob/master/iCodeBeta.md)**
+
 ## What is SSMP?
 SSM or *Second Screen Mode Protocol* is an open source framework for iOS writen in Swift that makes it easy for apps to take advantage of a second display (through a cable or AirPlay).
 
