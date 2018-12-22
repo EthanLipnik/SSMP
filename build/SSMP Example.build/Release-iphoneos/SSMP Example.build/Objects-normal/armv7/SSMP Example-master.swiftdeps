@@ -1,0 +1,6 @@
+version: "Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
+options: "c7845decf693cfb5a85765296ac566f8"
+build_time: [1543767147, 641673000]
+inputs:
+  "/Users/ethan/Library/Mobile Documents/com~apple~CloudDocs/SSMP Example/SSMP Example/ViewController.swift": [9223372036, 854775807]
+  "/Users/ethan/Library/Mobile Documents/com~apple~CloudDocs/SSMP Example/SSMP Example/AppDelegate.swift": [9223372036, 854775807]

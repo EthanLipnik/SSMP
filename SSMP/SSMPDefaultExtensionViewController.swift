@@ -98,6 +98,9 @@ extension SSMPDefaultExtensionViewController {
 		} else if let tableView = newView as? UITableView { // If subview is tableview
 			let index = tableView.indexPathForRow(at: mousePointer!.center)
 			tableView.selectRow(at: index, animated: false, scrollPosition: UITableView.ScrollPosition.middle)
+		} else if let collectionView = newView as? UICollectionView { // If subview is collectionview
+			let index = collectionView.indexPathForItem(at: mousePointer!.center)
+			collectionView.selectItem(at: index, animated: false, scrollPosition: UICollectionView.ScrollPosition.top)
 		} else if let textview = newView as? UITextView { // If subview is text view
 			
 			if textView == nil {
@@ -202,6 +205,8 @@ extension SSMPDefaultExtensionViewController {
 								scrollView.scrollRectToVisible(toVisible, animated: true)
 							} else if let tableView = subview as? UITableView {
 								tableView.contentOffset.y += gesture.velocity(in: self.view).y / 20
+							} else if let collectionView = subview as? UICollectionView {
+								collectionView.contentOffset.y += gesture.velocity(in: self.view).y / 20
 							} else if let webView = subview as? UIWebView {
 								let width: CGFloat = webView.frame.size.width
 								let height: CGFloat = webView.frame.size.height

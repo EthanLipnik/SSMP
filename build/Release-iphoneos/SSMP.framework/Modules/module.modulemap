@@ -1,0 +1,11 @@
+framework module SSMP {
+  umbrella header "SSMP.h"
+
+  export *
+  module * { export * }
+}
+
+module SSMP.Swift {
+    header "SSMP-Swift.h"
+    requires objc
+}

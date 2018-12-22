@@ -1,0 +1,10 @@
+framework module SSMP {
+  umbrella header "SSMP.h"
+
+  export *
+  module * { export * }
+}
+
+module SSMP.__Swift {
+    exclude header "SSMP-Swift.h"
+}

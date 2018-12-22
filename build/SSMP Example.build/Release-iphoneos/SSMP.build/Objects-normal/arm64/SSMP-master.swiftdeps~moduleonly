@@ -1,0 +1,13 @@
+version: "Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
+options: "72f689db47fe795c6f761c4839bb8eed"
+build_time: [1543767140, 361505000]
+inputs:
+  "/Users/ethan/Library/Mobile Documents/com~apple~CloudDocs/SSMP Example/SSMP/Deep Press Gesture/SSMPDeepPressGestureRecognizer.swift": [9223372036, 854775807]
+  "/Users/ethan/Library/Mobile Documents/com~apple~CloudDocs/SSMP Example/SSMP/SSMPApp.swift": [9223372036, 854775807]
+  "/Users/ethan/Library/Mobile Documents/com~apple~CloudDocs/SSMP Example/SSMP/SSMPTapGestureRecognizer.swift": [9223372036, 854775807]
+  "/Users/ethan/Library/Mobile Documents/com~apple~CloudDocs/SSMP Example/SSMP/SSMPDefaultExtensionViewController.swift": [9223372036, 854775807]
+  "/Users/ethan/Library/Mobile Documents/com~apple~CloudDocs/SSMP Example/SSMP/SSMPMousePointer.swift": [9223372036, 854775807]
+  "/Users/ethan/Library/Mobile Documents/com~apple~CloudDocs/SSMP Example/SSMP/SSMPPanGestureRecognizer.swift": [9223372036, 854775807]
+  "/Users/ethan/Library/Mobile Documents/com~apple~CloudDocs/SSMP Example/SSMP/SSMPLongPressGestureRecognizer.swift": [9223372036, 854775807]
+  "/Users/ethan/Library/Mobile Documents/com~apple~CloudDocs/SSMP Example/SSMP/SSMPGestureRecognizer.swift": [9223372036, 854775807]
+  "/Users/ethan/Library/Mobile Documents/com~apple~CloudDocs/SSMP Example/SSMP/SSMPTextView.swift": [9223372036, 854775807]

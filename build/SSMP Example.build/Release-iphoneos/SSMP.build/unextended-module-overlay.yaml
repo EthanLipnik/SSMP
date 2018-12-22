@@ -1,0 +1,13 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': "/Users/ethan/Library/Mobile Documents/com~apple~CloudDocs/SSMP Example/build/Release-iphoneos/SSMP.framework/Modules"
+    'contents': [{
+      'type': 'file',
+      'name': "module.modulemap",
+      'external-contents': "/Users/ethan/Library/Mobile Documents/com~apple~CloudDocs/SSMP Example/build/SSMP Example.build/Release-iphoneos/SSMP.build/unextended-module.modulemap",
+    }]
+  }]
+}
